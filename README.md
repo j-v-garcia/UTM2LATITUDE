@@ -13,41 +13,42 @@ he wrote a blog explaining how to call a c sharp method from SQL Server: http://
 
 Extract from the file UTM2LATSqlServerLibrary.cs:
  ```csharp
-/// <summary>
-/// Converts UTM Zone 30 Polar Region South to Latitude and Longitude using CoordinateSharp nuget library
-/// </summary>
-/// <param name="XUTM">pos UTM X</param>
-/// <param name="YUTM">pos UTM Y</param>
-/// <param name="Hemisphere">Letter code. (see http://www.dmap.co.uk/utmworld.htm) </param>
-/// <param name="Zone">Zone int value (see http://www.dmap.co.uk/utmworld.htm) </param>
-/// <returns>Latitude</returns>
-[SqlProcedure]
-public static double UTM2LATITUDE(double XUTM, double YUTM, string Hemisphere, int Zone)
-{
+ /// <summary>
+        /// Converts WGS84/UTM to Latitude and Longitude using CoordinateSharp nuget library
+        /// </summary>
+        /// <param name="XUTM">pos UTM X</param>
+        /// <param name="YUTM">pos UTM Y</param>
+        /// <param name="LatBand">Latitude band grid zone designation letter (see http://www.dmap.co.uk/utmworld.htm) </param>
+        /// <param name="LongBand">Longitude band grid zone designation number (see http://www.dmap.co.uk/utmworld.htm) </param>
+        /// <returns>Latitude</returns>
+        [SqlProcedure]
+        public static double UTM2LATITUDE(double XUTM, double YUTM, string LatBand, int LongBand)
+        {
 
-	UniversalTransverseMercator utm = new UniversalTransverseMercator(Hemisphere, Zone, XUTM, YUTM);
-	Coordinate c = UniversalTransverseMercator.ConvertUTMtoLatLong(utm);
+            UniversalTransverseMercator utm = new UniversalTransverseMercator(LatBand, LongBand, XUTM, YUTM);
+            Coordinate c = UniversalTransverseMercator.ConvertUTMtoLatLong(utm);
 
-	return c.Latitude.DecimalDegree;
-}
+            return c.Latitude.DecimalDegree;
+        }
 
-/// <summary>
-/// Converts UTM Zone 30 Polar Region South to Latitude and Longitude using CoordinateSharp nuget library
-/// </summary>
-/// <param name="XUTM">pos UTM X</param>
-/// <param name="YUTM">pos UTM Y</param>
-/// <param name="Hemisphere">Letter code. (see http://www.dmap.co.uk/utmworld.htm) </param>
-/// <param name="Zone">Zone int value (see http://www.dmap.co.uk/utmworld.htm) </param>
-/// <returns>Longitude</returns>
-[SqlProcedure]
-public static double UTM2LONGITUDE(double XUTM, double YUTM, string Hemisphere, int Zone)
-{
+        /// <summary>
+        /// Converts UTM Zone 30 Polar Region South to Latitude and Longitude using CoordinateSharp nuget library
+        /// </summary>
+        /// <param name="XUTM">pos UTM X</param>
+        /// <param name="YUTM">pos UTM Y</param>
+        /// <param name="LatBand">Latitude band grid zone designation letter (see http://www.dmap.co.uk/utmworld.htm) </param>
+        /// <param name="LongBand">Longitude band grid zone designation number (see http://www.dmap.co.uk/utmworld.htm) </param>
+        /// <returns>Longitude</returns>
+        [SqlProcedure]
+        public static double UTM2LONGITUDE(double XUTM, double YUTM, string LatBand, int LongBand)
+        {
 
-	UniversalTransverseMercator utm = new UniversalTransverseMercator(Hemisphere, Zone, XUTM, YUTM);
-	Coordinate c = UniversalTransverseMercator.ConvertUTMtoLatLong(utm);
+            UniversalTransverseMercator utm = new UniversalTransverseMercator(LatBand, LongBand, XUTM, YUTM);
+            Coordinate c = UniversalTransverseMercator.ConvertUTMtoLatLong(utm);
 
-	return c.Longitude.DecimalDegree;
-}
+            return c.Longitude.DecimalDegree;
+        
+	
  ```
 
 
