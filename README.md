@@ -1,6 +1,7 @@
 # UTM2LATSqlServerLibrary
-A .NET class library for Converting UTM Zone 30 Polar Region South coordinates to Latitude and Longitude using CoordinateSharp nuget library
+A .NET class library for Converting WGS84/UTM coordinates to Latitude and Longitude using CoordinateSharp nuget library
 This library contains utility methods that can be called from Microsoft SQL Server as SQL functions withn transact sql code (t-sql)
+
 
 This project is based in SqlLibrary (https://github.com/rsingh85/sql-dotnet-library) coded by Ravinder Singh (https://github.com/rsingh85)
 he wrote a blog explaining how to call a c sharp method from SQL Server: http://seesharpdeveloper.blogspot.com/2016/06/calling-c-method-from-sql-server.html
@@ -17,6 +18,8 @@ Extract from the file UTM2LATSqlServerLibrary.cs:
 /// </summary>
 /// <param name="XUTM">pos UTM X</param>
 /// <param name="YUTM">pos UTM Y</param>
+/// <param name="Hemisphere">Letter code. (see http://www.dmap.co.uk/utmworld.htm) </param>
+/// <param name="Zone">Zone int value (see http://www.dmap.co.uk/utmworld.htm) </param>
 /// <returns>Latitude</returns>
 [SqlProcedure]
 public static double UTM2LATITUDE(double XUTM, double YUTM, string Hemisphere, int Zone)
@@ -33,6 +36,8 @@ public static double UTM2LATITUDE(double XUTM, double YUTM, string Hemisphere, i
 /// </summary>
 /// <param name="XUTM">pos UTM X</param>
 /// <param name="YUTM">pos UTM Y</param>
+/// <param name="Hemisphere">Letter code. (see http://www.dmap.co.uk/utmworld.htm) </param>
+/// <param name="Zone">Zone int value (see http://www.dmap.co.uk/utmworld.htm) </param>
 /// <returns>Longitude</returns>
 [SqlProcedure]
 public static double UTM2LONGITUDE(double XUTM, double YUTM, string Hemisphere, int Zone)
