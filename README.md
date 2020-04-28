@@ -12,7 +12,7 @@ he wrote a blog explaining how to call a c sharp method from SQL Server: http://
 
 
 Extract from the file UTM2LATSqlServerLibrary.cs:
-
+'''
 /// <summary>
 /// Converts UTM Zone 30 Polar Region South to Latitude and Longitude using CoordinateSharp nuget library
 /// </summary>
@@ -48,7 +48,7 @@ public static double UTM2LONGITUDE(double XUTM, double YUTM, string Hemisphere, 
 
 	return c.Longitude.DecimalDegree;
 }
-
+'''
 
 
 Usage:
@@ -63,7 +63,7 @@ This setting enables your database to run code marked as not safe. This has rela
 I wouldn't recommend to develop extensive assemblies with unsafe code because some error could end up messing your sql server memory with unknown results.
 Nevertheless as we are using this for a simple task and it makes sense to me using this aproach.
 
-
+'''
 USE [INSERT_DB_NAME_HERE]
 GO
 
@@ -103,7 +103,7 @@ GO
 RECONFIGURE
 GO
 
-
+'''
 
 
 4. You should have 4 functions in your database under Programmability/Functions/Scalar valued functions	
