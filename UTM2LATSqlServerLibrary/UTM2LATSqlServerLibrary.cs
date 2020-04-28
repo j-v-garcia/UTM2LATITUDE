@@ -39,10 +39,12 @@ namespace UTM2LATSqlServerLibrary
         }
 
         /// <summary>
-        /// Converts UTM Zone 30 Polar Region South to Latitude and Longitude using CoordinateSharp nuget library
+        /// Converts WGS84/UTM to Latitude and Longitude using CoordinateSharp nuget library
         /// </summary>
         /// <param name="XUTM">pos UTM X</param>
         /// <param name="YUTM">pos UTM Y</param>
+        /// <param name="Hemisphere">Letter code. (see http://www.dmap.co.uk/utmworld.htm) </param>
+        /// <param name="Zone">Zone int value (see http://www.dmap.co.uk/utmworld.htm) </param>
         /// <returns>Latitude</returns>
         [SqlProcedure]
         public static double UTM2LATITUDE(double XUTM, double YUTM, string Hemisphere, int Zone)
@@ -59,6 +61,8 @@ namespace UTM2LATSqlServerLibrary
         /// </summary>
         /// <param name="XUTM">pos UTM X</param>
         /// <param name="YUTM">pos UTM Y</param>
+        /// <param name="Hemisphere">Letter code. (see http://www.dmap.co.uk/utmworld.htm) </param>
+        /// <param name="Zone">Zone int value (see http://www.dmap.co.uk/utmworld.htm) </param>
         /// <returns>Longitude</returns>
         [SqlProcedure]
         public static double UTM2LONGITUDE(double XUTM, double YUTM, string Hemisphere, int Zone)
