@@ -58,7 +58,7 @@ Usage:
 3. Copy the compilation folder to your SQL Server
 
 3. Run this t-sql commands. 
-Note that to be able to run thist library you have to configure your database as trustworthy because how is the CoordinateSharp implemented.
+Note that to be able to run this library you have to configure your database as trustworthy because how is the CoordinateSharp implemented.
 This setting enables your database to run code marked as not safe. This has relation with the permissions of the assembly to access memory locations.
 I wouldn't recommend to develop extensive assemblies with unsafe code because some error could end up messing your sql server memory with unknown results.
 Nevertheless as we are using this for a simple task and it makes sense to me using this aproach.
