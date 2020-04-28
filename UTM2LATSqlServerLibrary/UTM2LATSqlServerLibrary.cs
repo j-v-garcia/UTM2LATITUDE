@@ -43,14 +43,14 @@ namespace UTM2LATSqlServerLibrary
         /// </summary>
         /// <param name="XUTM">pos UTM X</param>
         /// <param name="YUTM">pos UTM Y</param>
-        /// <param name="Hemisphere">Letter code. (see http://www.dmap.co.uk/utmworld.htm) </param>
-        /// <param name="Zone">Zone int value (see http://www.dmap.co.uk/utmworld.htm) </param>
+        /// <param name="LatBand">Latitude band grid zone designation letter (see http://www.dmap.co.uk/utmworld.htm) </param>
+        /// <param name="LongBand">Longitude band grid zone designation number (see http://www.dmap.co.uk/utmworld.htm) </param>
         /// <returns>Latitude</returns>
         [SqlProcedure]
-        public static double UTM2LATITUDE(double XUTM, double YUTM, string Hemisphere, int Zone)
+        public static double UTM2LATITUDE(double XUTM, double YUTM, string LatBand, int LongBand)
         {
 
-            UniversalTransverseMercator utm = new UniversalTransverseMercator(Hemisphere, Zone, XUTM, YUTM);
+            UniversalTransverseMercator utm = new UniversalTransverseMercator(LatBand, LongBand, XUTM, YUTM);
             Coordinate c = UniversalTransverseMercator.ConvertUTMtoLatLong(utm);
 
             return c.Latitude.DecimalDegree;
@@ -61,14 +61,14 @@ namespace UTM2LATSqlServerLibrary
         /// </summary>
         /// <param name="XUTM">pos UTM X</param>
         /// <param name="YUTM">pos UTM Y</param>
-        /// <param name="Hemisphere">Letter code. (see http://www.dmap.co.uk/utmworld.htm) </param>
-        /// <param name="Zone">Zone int value (see http://www.dmap.co.uk/utmworld.htm) </param>
+        /// <param name="LatBand">Latitude band grid zone designation letter (see http://www.dmap.co.uk/utmworld.htm) </param>
+        /// <param name="LongBand">Longitude band grid zone designation number (see http://www.dmap.co.uk/utmworld.htm) </param>
         /// <returns>Longitude</returns>
         [SqlProcedure]
-        public static double UTM2LONGITUDE(double XUTM, double YUTM, string Hemisphere, int Zone)
+        public static double UTM2LONGITUDE(double XUTM, double YUTM, string LatBand, int LongBand)
         {
 
-            UniversalTransverseMercator utm = new UniversalTransverseMercator(Hemisphere, Zone, XUTM, YUTM);
+            UniversalTransverseMercator utm = new UniversalTransverseMercator(LatBand, LongBand, XUTM, YUTM);
             Coordinate c = UniversalTransverseMercator.ConvertUTMtoLatLong(utm);
 
             return c.Longitude.DecimalDegree;

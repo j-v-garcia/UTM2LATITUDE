@@ -42,11 +42,11 @@ namespace UTM2LATSqlServerLibrary.Tests
         {
             double XUTM = 723399.51;
             double YUTM = 4373328.5;
-            string Hemisphere = "S";
-            int Zone = 30;
+            string LatBand = "S";
+            int LongBand = 30;
 
             // Act
-            double latitude = UTM2LATSqlServerLibrary.UTM2LATITUDE(XUTM, YUTM, Hemisphere, Zone);
+            double latitude = UTM2LATSqlServerLibrary.UTM2LATITUDE(XUTM, YUTM, LatBand, LongBand);
 
             // Assert
             Assert.AreEqual<double>(expected: 39.480565745305434, actual: latitude);
@@ -57,11 +57,11 @@ namespace UTM2LATSqlServerLibrary.Tests
         {
             double XUTM = 723399.51;
             double YUTM = 4373328.5;
-            string Hemisphere = "S";
-            int Zone = 30;
+            string LatBand = "S";
+            int LongBand = 30;
 
             // Act
-            double longitude = UTM2LATSqlServerLibrary.UTM2LONGITUDE(XUTM, YUTM, Hemisphere, Zone);
+            double longitude = UTM2LATSqlServerLibrary.UTM2LONGITUDE(XUTM, YUTM, LatBand, LongBand);
 
             // Assert
             Assert.AreEqual<double>(expected: -0.40259272724511247, actual: longitude);
