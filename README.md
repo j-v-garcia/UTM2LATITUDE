@@ -111,9 +111,12 @@ GO
 
 5. You can use the funcions like this:
 
+ ```sql
+ 
 SELECT dbo.UTM2LATITUDE(723399.51,4373328.5,'S',30) AS Latitude, dbo.UTM2LONGITUDE(723399.51,4373328.5,'S',30) AS Longitude
 SELECT dbo.UTM2LAT(723399.51,4373328.5) AS Latitude, dbo.UTM2LONG(723399.51,4373328.5) AS Longitude
 
+ ```
 
 
 
