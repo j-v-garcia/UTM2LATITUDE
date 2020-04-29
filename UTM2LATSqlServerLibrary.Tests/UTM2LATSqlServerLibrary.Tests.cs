@@ -8,9 +8,6 @@ namespace UTM2LATSqlServerLibrary.Tests
     public class UTM2LATSqlServerLibraryTests
     {
 
-        // Calle Jorge Comín 5 (723399.51, 4373328.5) x,y UTM  (39.480565745305434, -0.40259272724511247) Lat Long
-
-
         [TestMethod]
         public void Compute_UTM2LAT_ShouldReturnCorrectLatitude()
         {

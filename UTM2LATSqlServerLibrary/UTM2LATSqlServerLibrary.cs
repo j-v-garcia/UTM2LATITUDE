@@ -54,6 +54,7 @@ namespace UTM2LATSqlServerLibrary
             Coordinate c = UniversalTransverseMercator.ConvertUTMtoLatLong(utm);
 
             return c.Latitude.DecimalDegree;
+
         }
 
         /// <summary>
