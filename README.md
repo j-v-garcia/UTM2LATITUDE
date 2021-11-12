@@ -1,6 +1,6 @@
 # UTM2LATSqlServerLibrary
 A .NET class library for Converting WGS84/UTM coordinates to Latitude and Longitude using CoordinateSharp nuget library
-This library contains utility methods that can be called from Microsoft SQL Server as SQL functions withn transact sql code (t-sql)
+This library contains utility methods that can be called from Microsoft SQL Server as SQL functions using transact sql code (t-sql)
 
 
 This project is based in SqlLibrary (https://github.com/rsingh85/sql-dotnet-library) coded by Ravinder Singh (https://github.com/rsingh85)
