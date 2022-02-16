@@ -47,7 +47,7 @@ Extract from the file UTM2LATSqlServerLibrary.cs:
             Coordinate c = UniversalTransverseMercator.ConvertUTMtoLatLong(utm);
 
             return c.Longitude.DecimalDegree;
-        
+        }
 	
  ```
 
